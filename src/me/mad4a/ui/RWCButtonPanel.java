@@ -352,9 +352,9 @@ public class RWCButtonPanel extends Composite {
 	}
 	public Button[] getButtons() {
 		return new Button[] {btnBackspace, btnCE, btnC, btnNegate, btnSquareRoot,
-				btnSeven, btnEight, btnNine, btnDivide, btnMod,
-				btnFour, btnFive, btnSix, btnMultiply, btnReciprocal,
-				btnOne, btnTwo, btnThree, btnSubtract, btnEqual,
-				btnZero, btnPoint, btnAdd};
+				             btnSeven, btnEight, btnNine, btnDivide, btnMod,
+				             btnFour, btnFive, btnSix, btnMultiply, btnReciprocal,
+				             btnOne, btnTwo, btnThree, btnSubtract, btnEqual,
+				             btnZero, btnPoint, btnAdd};
 	}
 }

@@ -3,7 +3,6 @@ package me.mad4a.core;
 import me.mad4a.util.BigDecimalNewtonSquareRoot;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 
 public class CalcCore {
