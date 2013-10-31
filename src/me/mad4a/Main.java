@@ -1,5 +1,6 @@
 package me.mad4a;
 
+import me.mad4a.core.CalcCore;
 import me.mad4a.ui.RWCMain;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -14,8 +15,9 @@ public class Main {
 		Shell shell = new Shell(display);
 		shell.setText("火车司机的计算器");
 		shell.setLayout(new FillLayout());
+		shell.setMinimumSize(350, 335);
 
-		new RWCMain(shell, SWT.NONE);
+		new RWCMain(shell, SWT.NONE).bindCore(new CalcCore());
 
 		shell.pack();
 		shell.open();

@@ -1,5 +1,6 @@
 package me.mad4a.ui;
 
+import me.mad4a.core.CalcCore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
@@ -19,29 +20,29 @@ public class RWCButtonPanel extends Composite {
 		createButtons();
 	}
 
-	private Button btnBackspace;
-	private Button btnCE;
-	private Button btnC;
-	private Button btnSwitchPN;
-	private Button btnSquareRoot;
-	private Button btnSeven;
-	private Button btnEight;
-	private Button btnNine;
-	private Button btnDivide;
-	private Button btnMod;
-	private Button btnFour;
-	private Button btnFive;
-	private Button btnSix;
-	private Button btnMultiply;
-	private Button btnReciprocal;
-	private Button btnOne;
-	private Button btnTwo;
-	private Button btnThree;
-	private Button btnMinus;
-	private Button btnEqual;
-	private Button btnZero;
-	private Button btnPoint;
-	private Button btnAdd;
+	public Button btnBackspace;
+	public Button btnCE;
+	public Button btnC;
+	public Button btnNegate;
+	public Button btnSquareRoot;
+	public Button btnSeven;
+	public Button btnEight;
+	public Button btnNine;
+	public Button btnDivide;
+	public Button btnMod;
+	public Button btnFour;
+	public Button btnFive;
+	public Button btnSix;
+	public Button btnMultiply;
+	public Button btnReciprocal;
+	public Button btnOne;
+	public Button btnTwo;
+	public Button btnThree;
+	public Button btnSubtract;
+	public Button btnEqual;
+	public Button btnZero;
+	public Button btnPoint;
+	public Button btnAdd;
 
 
 	public void createButtons() {
@@ -71,9 +72,9 @@ public class RWCButtonPanel extends Composite {
 		gridData = new GridData(GridData.FILL_BOTH);
 		gridData.horizontalSpan = 1;
 		gridData.verticalSpan = 1;
-		btnSwitchPN = new Button(this, SWT.PUSH);
-		btnSwitchPN.setText("+/-");
-		btnSwitchPN.setLayoutData(gridData);
+		btnNegate = new Button(this, SWT.PUSH);
+		btnNegate.setText("+/-");
+		btnNegate.setLayoutData(gridData);
 
 		gridData = new GridData(GridData.FILL_BOTH);
 		gridData.horizontalSpan = 1;
@@ -176,9 +177,9 @@ public class RWCButtonPanel extends Composite {
 		gridData = new GridData(GridData.FILL_BOTH);
 		gridData.horizontalSpan = 1;
 		gridData.verticalSpan = 1;
-		btnMinus = new Button(this, SWT.PUSH);
-		btnMinus.setText("-");
-		btnMinus.setLayoutData(gridData);
+		btnSubtract = new Button(this, SWT.PUSH);
+		btnSubtract.setText("-");
+		btnSubtract.setLayoutData(gridData);
 
 		gridData = new GridData(GridData.FILL_BOTH);
 		gridData.horizontalSpan = 1;
@@ -208,5 +209,152 @@ public class RWCButtonPanel extends Composite {
 		btnAdd.setText("+");
 		btnAdd.setLayoutData(gridData);
 	}
-}
 
+	public void bindButtons(final CalcCore core) {
+		btnBackspace.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.backspace();
+			}
+		});
+		btnCE.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.CE();
+			}
+		});
+		btnC.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.C();
+			}
+		});
+		btnNegate.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.negate();
+			}
+		});
+		btnSquareRoot.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.squareRoot();
+			}
+		});
+		btnSeven.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.seven();
+			}
+		});
+		btnEight.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.eight();
+			}
+		});
+		btnNine.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.nine();
+			}
+		});
+		btnDivide.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.divide();
+			}
+		});
+		btnMod.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.mod();
+			}
+		});
+		btnFour.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.four();
+			}
+		});
+		btnFive.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.five();
+			}
+		});
+		btnSix.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.six();
+			}
+		});
+		btnMultiply.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.multiply();
+			}
+		});
+		btnReciprocal.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.reciprocal();
+			}
+		});
+		btnOne.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.one();
+			}
+		});
+		btnTwo.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.two();
+			}
+		});
+		btnThree.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.three();
+			}
+		});
+		btnSubtract.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.subtract();
+			}
+		});
+		btnEqual.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.equal();
+			}
+		});
+		btnZero.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.zero();
+			}
+		});
+		btnPoint.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.point();
+			}
+		});
+		btnAdd.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				core.add();
+			}
+		});
+	}
+	public Button[] getButtons() {
+		return new Button[] {btnBackspace, btnCE, btnC, btnNegate, btnSquareRoot,
+				btnSeven, btnEight, btnNine, btnDivide, btnMod,
+				btnFour, btnFive, btnSix, btnMultiply, btnReciprocal,
+				btnOne, btnTwo, btnThree, btnSubtract, btnEqual,
+				btnZero, btnPoint, btnAdd};
+	}
+}

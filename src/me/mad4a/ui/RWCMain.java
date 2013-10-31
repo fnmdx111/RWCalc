@@ -2,10 +2,10 @@ package me.mad4a.ui;
 
 import me.mad4a.core.CalcCore;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.*;
 
 
 public class RWCMain extends Composite {
@@ -32,6 +32,9 @@ public class RWCMain extends Composite {
 		result.setBackground(getDisplay().getSystemColor(SWT.COLOR_WHITE));
 		result.setLayoutData(gridData);
 
+		Font mono = new Font(getDisplay(), "Consolas", 12, SWT.NONE);
+		result.setFont(mono);
+
 		buttonPanel = new RWCButtonPanel(this, SWT.NONE);
 		gridData = new GridData(GridData.FILL_BOTH);
 		gridData.horizontalSpan = 1;
@@ -39,19 +42,16 @@ public class RWCMain extends Composite {
 		buttonPanel.setLayoutData(gridData);
 	}
 
-	public void setResultText(String s) {
-		result.setText(s);
-	}
-
-	public void setResultText(int i) {
-		result.setText(String.valueOf(i));
-	}
-
-	public void setResultText(double d) {
-		result.setText(String.valueOf(d));
-	}
-
-	public void setCore(CalcCore core) {
-		this.core = core;
+	public void bindCore(CalcCore c) {
+		core = c;
+		buttonPanel.bindButtons(core);
+		for (Button btn:buttonPanel.getButtons()) {
+			btn.addListener(SWT.Selection, new Listener() {
+				@Override
+				public void handleEvent(Event event) {
+					result.setText(core.display());
+				}
+			});
+		}
 	}
 }
